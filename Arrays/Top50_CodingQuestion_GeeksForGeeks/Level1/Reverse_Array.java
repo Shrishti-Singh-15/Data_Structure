@@ -20,6 +20,7 @@ public class Reverse_Array {
             {
                 System.out.print(arr[i] + " ");
             }
+            System.out.println();
         }
     }
 }
