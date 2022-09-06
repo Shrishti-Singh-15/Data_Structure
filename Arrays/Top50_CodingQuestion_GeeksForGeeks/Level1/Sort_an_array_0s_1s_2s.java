@@ -12,47 +12,40 @@ public class Sort_an_array_0s_1s_2s {
             arr[i] = sc.nextInt();
         }
         sortBrute(arr, n);
-        sortBetter(arr,n);
         sortOptimal(arr,n);
     }
 
     private static void sortOptimal(int[] arr, int n) {
-    }
-
-    private static void sortBetter(int[] arr, int n) {
-        int zeros = 0;
-        int ones = 0;
-        int twos = 0;
-        for(int i=0;i<n;i++)
-        {
-            if(arr[i] == 0){
-                zeros++;
+        int low = arr[0];
+        int mid = arr[0];
+        int high = arr[n-1];
+        while(mid<=high){
+            switch(arr[mid]){
+                case 0: {
+                    int temp = arr[low];
+                    arr[low] = arr[mid];
+                    arr[mid] = temp;
+                    low++;
+                    mid++;
+                    break;
+                }
+                case 1:
+                    mid++;
+                    break;
+                case 2:
+                {
+                    int temp = arr[mid];
+                    arr[mid] = arr[high];
+                    arr[high] = temp;
+                    high--;
+                    break;
+                }
             }
-            if(arr[i] == 1){
-                ones++;
-            }
-            if(arr[i] == 2) {
-                twos++;
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
-
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
     }
 
     private static void sortBrute(int[] arr, int n) {
